@@ -13,7 +13,7 @@ import {
 } from "@/components/page-header"
 import { PageNav } from "@/components/page-nav"
 import { ThemeSelector } from "@/components/theme-selector"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/components/ui/button"
 
 const title = "Build your Component Library"
 const description =
@@ -46,51 +46,93 @@ export const metadata: Metadata = {
   },
 }
 
-export default function IndexPage() {
+export default function Home() {
   return (
-    <div className="flex flex-1 flex-col">
-      <PageHeader>
-        <Announcement />
-        <PageHeaderHeading>{title}</PageHeaderHeading>
-        <PageHeaderDescription>{description}</PageHeaderDescription>
-        <PageActions>
-          <Button asChild size="sm">
-            <Link href="/docs/installation">Get Started</Link>
-          </Button>
-          <Button asChild size="sm" variant="ghost">
-            <Link href="/blocks">Browse Blocks</Link>
-          </Button>
-        </PageActions>
-      </PageHeader>
-      <PageNav className="hidden md:flex">
-        <ExamplesNav className="[&>a:first-child]:text-primary flex-1 overflow-hidden" />
-        <ThemeSelector className="mr-4 hidden md:flex" />
-      </PageNav>
-      <div className="container-wrapper section-soft flex-1 pb-6">
-        <div className="container overflow-hidden">
-          <section className="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
-            <Image
-              src="/r/styles/new-york-v4/dashboard-01-light.png"
-              width={1400}
-              height={875}
-              alt="Dashboard"
-              className="block dark:hidden"
-              priority
-            />
-            <Image
-              src="/r/styles/new-york-v4/dashboard-01-dark.png"
-              width={1400}
-              height={875}
-              alt="Dashboard"
-              className="hidden dark:block"
-              priority
-            />
-          </section>
-          <section className="theme-container hidden md:block">
-            <CardsDemo />
-          </section>
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b">
+        <div className="container flex h-16 items-center justify-between">
+          <h1 className="text-2xl font-bold">Levva Counter</h1>
+          <div className="flex items-center gap-4">
+            <span className="text-sm text-muted-foreground">Dark Mode</span>
+            <Button variant="square" size="square" className="bg-secondary hover:bg-secondary/90">
+              🌙
+            </Button>
+          </div>
         </div>
-      </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="container py-12">
+        <div className="mx-auto max-w-2xl">
+          {/* Card */}
+          <div className="rounded-lg border bg-card p-8 shadow-sm">
+            <div className="mb-8 text-center">
+              <h2 className="mb-2 text-3xl font-bold">Contador</h2>
+              <p className="text-muted-foreground">
+                Use os botões abaixo para incrementar ou decrementar o valor
+              </p>
+            </div>
+
+            {/* Counter Display */}
+            <div className="mb-8 flex items-center justify-center">
+              <span className="text-6xl font-bold">0</span>
+            </div>
+
+            {/* Counter Controls */}
+            <div className="flex items-center justify-center gap-4">
+              <Button variant="square" size="square" className="bg-secondary hover:bg-secondary/90">
+                -
+              </Button>
+              <Button variant="square" size="square">
+                +
+              </Button>
+            </div>
+          </div>
+
+          {/* Info Section */}
+          <div className="mt-8 rounded-lg border bg-card p-6">
+            <h3 className="mb-4 text-xl font-semibold">Sobre os Botões</h3>
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <Button variant="square" size="square" className="h-8 w-8">
+                  +
+                </Button>
+                <span className="text-sm text-muted-foreground">Tamanho pequeno (32x32)</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <Button variant="square" size="square">
+                  +
+                </Button>
+                <span className="text-sm text-muted-foreground">Tamanho padrão (48x48)</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <Button variant="square" size="square" className="h-16 w-16 text-xl">
+                  +
+                </Button>
+                <span className="text-sm text-muted-foreground">Tamanho grande (64x64)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t">
+        <div className="container flex h-16 items-center justify-between">
+          <p className="text-sm text-muted-foreground">
+            © 2024 Levva. Todos os direitos reservados.
+          </p>
+          <div className="flex items-center gap-4">
+            <Button variant="square" size="square" className="h-8 w-8">
+              🐦
+            </Button>
+            <Button variant="square" size="square" className="h-8 w-8">
+              📱
+            </Button>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

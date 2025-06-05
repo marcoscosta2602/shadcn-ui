@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: "shadcn/ui",
-  url: "https://ui.shadcn.com",
-  ogImage: "https://ui.shadcn.com/og.jpg",
+  name: "Levva",
+  url: "https://levva.com.br",
+  ogImage: "https://levva.com.br/og.jpg",
   description:
-    "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
+    "Transformando ideias em soluções digitais inovadoras.",
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn-ui/ui",
+    twitter: "https://twitter.com/levva",
+    github: "https://github.com/levva",
   },
   navItems: [
     {
@@ -38,5 +38,10 @@ export const siteConfig = {
 
 export const META_THEME_COLORS = {
   light: "#ffffff",
-  dark: "#09090b",
+  dark: "#292829",
+}
+
+export const LEVVA_COLORS = {
+  primary: "#ffc800",
+  secondary: "#292829",
 }

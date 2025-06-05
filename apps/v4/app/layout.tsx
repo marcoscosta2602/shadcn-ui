@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Poppins } from "next/font/google"
 
 import { META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { fontVariables } from "@/lib/fonts"
@@ -12,12 +13,18 @@ import { Toaster } from "@/registry/new-york-v4/ui/sonner"
 
 import "@/styles/globals.css"
 
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
+})
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:4000'),
   description: siteConfig.description,
   keywords: ["Next.js", "React", "Tailwind CSS", "Components", "shadcn"],
   authors: [
@@ -64,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={poppins.variable}>
       <head>
         <script
           dangerouslySetInnerHTML={{
