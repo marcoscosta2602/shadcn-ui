@@ -1,18 +1,4 @@
 import { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
-
-import { Announcement } from "@/components/announcement"
-import { CardsDemo } from "@/components/cards"
-import { ExamplesNav } from "@/components/examples-nav"
-import {
-  PageActions,
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header"
-import { PageNav } from "@/components/page-nav"
-import { ThemeSelector } from "@/components/theme-selector"
 import { Button } from "@/components/ui/button"
 
 const title = "Build your Component Library"
