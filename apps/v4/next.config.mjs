@@ -9,6 +9,18 @@ const nextConfig = {
   outputFileTracingIncludes: {
     "/*": ["./registry/**/*"],
   },
+  experimental: {
+    optimizeCss: true,
+    webpackBuildWorker: true,
+    serverExternalPackages: [],
+    serverMinification: true,
+    serverSourceMaps: false,
+    optimizePackageImports: ['@radix-ui/react-icons', '@radix-ui/react-slot'],
+  },
+  onDemandEntries: {
+    maxInactiveAge: 60 * 60 * 1000,
+    pagesBufferLength: 10,
+  },
   images: {
     remotePatterns: [
       {
